@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#85fffd">
+<title>Abby</title>
+<meta name="portfolio-studio-format" content="1">
+<style>
+                *{box-sizing:border-box}body{margin:0;padding:24px;background:#fffafa;color:#4a4a4a;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+                inline-emoji{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.2em;line-height:1}inline-emoji img{display:block;width:100%;height:100%;object-fit:contain;-webkit-user-drag:none;user-select:none}
+                .portfolio-page{--p-accent:#ff85a2;--p-soft:#ffe4e9;max-width:740px;margin:auto}
+                .portfolio-card{--card-padding:32px;margin:0 auto 18px;padding:var(--card-padding);overflow:hidden;border-radius:26px;background:#fff;text-align:center;box-shadow:0 12px 30px color-mix(in srgb,var(--p-accent) 15%,transparent)}
+                .portfolio-banner{position:relative;height:230px;margin:calc(-1 * var(--card-padding)) calc(-1 * var(--card-padding)) -75px;overflow:hidden}.portfolio-banner img{display:block;width:100%;height:100%;object-fit:cover;object-position:center var(--banner-position,45%);-webkit-user-drag:none;user-select:none}.portfolio-banner:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(to bottom,transparent,#fff);pointer-events:none}
+                .portfolio-page h1,.portfolio-page h2{color:var(--p-accent)}.portfolio-page h1{font-size:2.2rem;margin:14px 0 5px}
+                .portfolio-photos{position:relative;display:flex;justify-content:center;align-items:center;gap:8px;min-height:120px}.portfolio-photos.align-left{justify-content:flex-start}.portfolio-photos.align-right{justify-content:flex-end}
+                .portfolio-photos img{width:100px;height:100px;border-radius:50%;object-fit:cover;border:4px solid white;box-shadow:0 3px 12px #3333}
+                .portfolio-photos.carousel{display:block;width:min(390px,100%);min-height:0;aspect-ratio:3/1;margin:auto;overflow:hidden;touch-action:pan-y;user-select:none}.portfolio-photos.carousel img{position:absolute;top:0;width:33.3333%;height:100%;aspect-ratio:1;border:0;border-radius:50%;object-fit:cover;cursor:grab;-webkit-user-drag:none}.portfolio-photos.carousel .pfp-left{left:0;opacity:.5;transform:scale(.75)}.portfolio-photos.carousel .pfp-center{left:33.3333%;opacity:1;transform:scale(1);z-index:2}.portfolio-photos.carousel .pfp-right{left:66.6667%;opacity:.5;transform:scale(.75)}.portfolio-photos.carousel .pfp-incoming{display:none;left:0;pointer-events:none}.portfolio-photos.carousel .pfp-enter-from-left{left:0}.portfolio-photos.carousel .pfp-enter-from-right{left:66.6667%}.portfolio-photos.carousel.is-animating .pfp-incoming{display:block}
+                .portfolio-status{color:#8f6c77;margin:0 0 14px}
+                .portfolio-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:18px 0}.portfolio-stat{position:relative;padding:10px;border-radius:10px;background:var(--p-soft);font-weight:650;font-size:.92rem;cursor:default}.portfolio-stat:last-child:nth-child(odd){grid-column:1/-1}
+                .portfolio-stat[data-hint]{cursor:help}.portfolio-stat[data-hint]:hover:after,.portfolio-stat[data-hint]:focus-visible:after{content:attr(data-hint);position:absolute;z-index:5;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);padding:6px 12px;border-radius:8px;background:#4a4a4a;color:white;font-size:.78rem;font-weight:400;white-space:nowrap;box-shadow:0 3px 10px #0002}
+                .portfolio-badges{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}.portfolio-badges img{width:32px;height:32px;object-fit:contain}
+                .portfolio-bio{padding:16px;border-left:4px solid var(--p-accent);border-radius:8px;background:#fffcfc;text-align:left;white-space:pre-wrap;line-height:1.7;overflow-wrap:anywhere}
+                .portfolio-socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}.portfolio-socials a,.portfolio-button{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:24px;background:var(--p-accent);color:#fff;text-decoration:none;font-weight:bold}
+                .portfolio-socials img{width:22px;height:22px;object-fit:contain}.portfolio-section{margin:0 auto 18px;padding:28px;border-radius:22px;background:#fff;box-shadow:0 10px 25px #32101a0c}
+                .portfolio-section h2{font-size:1.25rem;border-bottom:2px solid var(--p-soft);padding-bottom:8px}.portfolio-time{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px;padding:8px 12px;border:1px solid var(--p-soft);border-radius:20px;background:#fffcfc}.portfolio-time-info{text-align:left}.portfolio-time-info h3{margin:0;color:var(--p-accent);font-size:1.2rem}.portfolio-time-zone{color:#9c7783;font-size:.8rem}
+                .hybrid-clock{position:relative;flex:0 0 70px;width:70px;height:70px;border:2px solid var(--p-soft);border-radius:50%;background:#fff;box-shadow:0 4px 10px color-mix(in srgb,var(--p-accent) 9%,transparent)}.hybrid-hand{position:absolute;top:50%;height:2px;border-radius:2px;transform-origin:100%}.h-hour{left:25%;width:25%;height:3px;background:var(--p-ink)}.h-min{left:15%;width:35%;background:#888}.h-sec{left:12%;width:38%;height:1px;background:var(--p-accent)}.hybrid-digital{position:absolute;z-index:3;top:40%;left:50%;transform:translateX(-50%);padding:2px 4px;border-radius:4px;background:#fffdfddd;color:var(--p-ink);font:bold .75rem monospace}
+                .portfolio-interest-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.portfolio-interest{aspect-ratio:2/3;min-height:130px;display:flex;flex-direction:column;justify-content:end;padding:10px;color:#fff;border-radius:12px;background:linear-gradient(160deg,var(--p-soft),var(--p-accent));background-position:center;background-size:cover;text-shadow:0 1px 5px #000b}
+                .portfolio-interest small{margin-top:4px}.portfolio-extra{line-height:1.6;overflow-wrap:anywhere}.portfolio-extra img{display:block;max-width:100%;max-height:300px;object-fit:cover;border-radius:12px;margin:12px auto}
+                @media(max-width:520px){body{padding:12px}.portfolio-card{--card-padding:22px;padding:var(--card-padding)}.portfolio-section{padding:22px}.portfolio-banner{height:auto;aspect-ratio:2.3/1}.portfolio-stats{grid-template-columns:1fr}}
+            </style>
+</head>
+<body>
+<!-- portfolio-studio:managed:v1 -->
+<div class="portfolio-page" style="--p-accent:#85fffd;--p-soft:#85fffd30"><main class="portfolio-card"><div class="portfolio-photos  align-center" data-preview-part="profile"><img src="media/img-qz4vg8n37.webp" alt="Untitled design"></div><h1 data-preview-part="identity">Abby</h1><p class="portfolio-status" data-preview-part="identity">&lt;3</p><div class="portfolio-stats" data-preview-part="stats"><div class="portfolio-stat">Pronouns: </div><div class="portfolio-stat">Birthday: </div><div class="portfolio-stat">Gender: </div><div class="portfolio-stat">Relationship status: </div></div></main></div>
+                                <script id="portfolio-studio-data" type="application/json">{"accent":"#85fffd","icon":"","profile":{"type":"default","alignment":"center","images":[{"data":"media/img-qz4vg8n37.webp","alt":"Untitled design"}],"banner":{"data":"","alt":"","positionY":45}},"name":"Abby","status":"\u003c3","stats":[{"label":"Pronouns","type":"text","value":""},{"label":"Birthday","type":"date","value":"","prefix":""},{"label":"Gender","type":"text","value":""},{"label":"Relationship status","type":"text","value":""}],"badges":[],"bio":"","socials":[],"timezone":{"enabled":false,"zone":"America/New_York","confirmedTime":""},"interests":{"categories":"Games I own, Hobbies I like, Communities I'm in","items":[]},"extras":[]}</script>
+<script>
+                                                (function generatedPortfolioRuntime() {
+                const root = document.querySelector(".portfolio-page");
+                if (!root) return;
+                root.querySelectorAll("inline-emoji[src]").forEach((emoji) => {
+                    const image = document.createElement("img");
+                    image.src = emoji.getAttribute("src");
+                    image.alt = "";
+                    image.draggable = false;
+                    image.setAttribute("aria-hidden", "true");
+                    emoji.replaceChildren(image);
+                    const description = emoji.getAttribute("alt");
+                    if (description) {
+                        emoji.setAttribute("role", "img");
+                        emoji.setAttribute("aria-label", description);
+                    } else {
+                        emoji.setAttribute("aria-hidden", "true");
+                    }
+                });
+                const relativeDateHint = (iso) => {
+                    if (!/^\d{4}-\d{2}-\d{2}$/.test(iso || "")) return "";
+                    const date = new Date(`${iso}T00:00:00`);
+                    if (Number.isNaN(date.getTime())) return "";
+                    const today = new Date();
+                    const days = Math.abs(Math.floor((Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) - Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())) / 86400000));
+                    if (days === 0) return "Today";
+                    if (days >= 365) return `${Math.floor(days / 365.2425)} years`;
+                    if (days >= 30) return `${Math.floor(days / 30.4375)} months`;
+                    return `${days} days`;
+                };
+                for (const node of root.querySelectorAll("[data-date]")) {
+                    node.dataset.hint = relativeDateHint(node.dataset.date);
+                }
+
+                const data = JSON.parse(document.getElementById("portfolio-studio-data").textContent);
+                const photos = root.querySelector(".portfolio-photos.carousel");
+                if (photos && data.profile.images.length > 1) {
+                    const images = data.profile.images.filter((image) => typeof image.data === "string" && (image.data.startsWith("data:image/") || image.data.startsWith("media/")));
+                    let slots = [...photos.querySelectorAll("img")];
+                    let current = 0;
+                    let animating = false;
+                    const roles = ["left", "center", "right", "incoming"];
+                    const assign = (node, index) => {
+                        const image = images[(index + images.length) % images.length];
+                        node.src = image.data;
+                        node.alt = image.alt || "Profile picture";
+                    };
+                    const restore = () => {
+                        slots.forEach((node, index) => {
+                            node.className = `pfp-${roles[index]}`;
+                            node.removeAttribute("style");
+                        });
+                        photos.classList.remove("is-animating");
+                        animating = false;
+                    };
+                    assign(slots[0], images.length - 1);
+                    assign(slots[1], 0);
+                    assign(slots[2], 1);
+                    assign(slots[3], 2);
+
+                    const rotate = (direction) => {
+                        if (animating || direction === 0) return;
+                        if (matchMedia("(prefers-reduced-motion: reduce)").matches || typeof slots[0].animate !== "function") {
+                            const [left, center, right, incoming] = slots;
+                            current = (current + direction + images.length) % images.length;
+                            slots = direction > 0 ? [center, right, incoming, left] : [incoming, left, center, right];
+                            restore();
+                            assign(slots[0], current - 1);
+                            assign(slots[1], current);
+                            assign(slots[2], current + 1);
+                            assign(slots[3], current + 2);
+                            return;
+                        }
+                        animating = true;
+                        const [left, center, right, incoming] = slots;
+                        const nextCenter = (current + direction + images.length) % images.length;
+                        assign(incoming, nextCenter + direction);
+                        incoming.className = `pfp-incoming pfp-enter-from-${direction > 0 ? "right" : "left"}`;
+                        photos.classList.add("is-animating");
+                        const shift = -direction * photos.clientWidth / 3;
+                        const outgoing = direction > 0 ? left : right;
+                        const movingSide = direction > 0 ? right : left;
+                        const animations = [
+                            outgoing.animate([{ opacity: .5 }, { opacity: 0 }], { duration: 420, easing: "ease", fill: "forwards" }),
+                            center.animate([{ transform: "scale(1)", opacity: 1 }, { transform: `translateX(${shift}px) scale(.75)`, opacity: .5 }], { duration: 420, easing: "ease", fill: "forwards" }),
+                            movingSide.animate([{ transform: "scale(.75)", opacity: .5 }, { transform: `translateX(${shift}px) scale(1)`, opacity: 1 }], { duration: 420, easing: "ease", fill: "forwards" }),
+                            incoming.animate([{ transform: `translateX(${-shift}px) scale(.75)`, opacity: 0 }, { transform: "scale(.75)", opacity: .5 }], { duration: 420, easing: "ease", fill: "forwards" })
+                        ];
+                        Promise.all(animations.map((animation) => animation.finished)).then(() => {
+                            current = nextCenter;
+                            slots = direction > 0 ? [center, right, incoming, left] : [incoming, left, center, right];
+                            restore();
+                            assign(slots[3], current + 2);
+                            animations.forEach((animation) => animation.cancel());
+                        }).catch((error) => {
+                            animations.forEach((animation) => animation.cancel());
+                            restore();
+                            console.error("Unable to animate the profile picture carousel.", error);
+                        });
+                    };
+                    let pointerStart = null;
+                    photos.tabIndex = 0;
+                    photos.addEventListener("wheel", (event) => {
+                        event.preventDefault();
+                        rotate(Math.sign(event.deltaY));
+                    }, { passive: false });
+                    photos.addEventListener("pointerdown", (event) => {
+                        if (event.pointerType === "touch" || event.pointerType === "pen") pointerStart = event.clientX;
+                    });
+                    photos.addEventListener("pointerup", (event) => {
+                        if (pointerStart === null) return;
+                        const delta = event.clientX - pointerStart;
+                        if (Math.abs(delta) > 24) rotate(delta < 0 ? 1 : -1);
+                        pointerStart = null;
+                    });
+                    photos.addEventListener("keydown", (event) => {
+                        if (event.key === "ArrowRight") rotate(1);
+                        if (event.key === "ArrowLeft") rotate(-1);
+                    });
+                }
+
+                for (const clock of root.querySelectorAll("[data-clock]")) {
+                    const zone = clock.dataset.clock;
+                    const digital = clock.querySelector(".hybrid-digital");
+                    const display = root.querySelector("[data-timezone]");
+                    const update = () => {
+                        try {
+                            const parts = new Intl.DateTimeFormat("en-GB", { timeZone: zone, hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" }).formatToParts(new Date());
+                            const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+                            const hourText = String(values.hour).padStart(2, "0");
+                            const hour = Number(values.hour), minute = Number(values.minute), second = Number(values.second);
+                            if (display) display.textContent = `${hourText}:${values.minute}`;
+                            if (digital) digital.textContent = `${hourText}:${values.minute}`;
+                            clock.querySelector(".h-hour").style.transform = `rotate(${hour % 12 * 30 + minute * .5 - 90}deg)`;
+                            clock.querySelector(".h-min").style.transform = `rotate(${minute * 6 - 90}deg)`;
+                            clock.querySelector(".h-sec").style.transform = `rotate(${second * 6 - 90}deg)`;
+                        } catch (error) {
+                            if (!(error instanceof RangeError)) throw error;
+                            if (display) display.textContent = "Invalid timezone";
+                        }
+                    };
+                    update();
+                    setInterval(update, 1000);
+                }
+            })();
+</script>
+</body>
+</html>
